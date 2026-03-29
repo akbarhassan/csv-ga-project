@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "csv-processor-collection",
+		"name": "CSV Processor API",
+		"description": "Collection for testing the Concurrent CSV Data Processor API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employees"
+					]
+				},
+				"description": "Returns all employees from the input CSV file (test_employees.csv)"
+			},
+			"response": []
+		},
+		{
+			"name": "Process Employee Salaries",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/employees/process",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employees",
+						"process"
+					]
+				},
+				"description": "Processes all employee salaries concurrently using thread pool. Applies salary increments based on:\n- Project completion (must be >= 60%)\n- Years of service (2% per year)\n- Role (Director: 5%, Manager: 2%, Employee: 1%)\n\nSaves results to updated_employees.csv"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Updated Employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/employees/updated",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"employees",
+						"updated"
+					]
+				},
+				"description": "Returns all employees from the output CSV file (updated_employees.csv) after processing"
+			},
+			"response": []
+		}
+	]
+}
