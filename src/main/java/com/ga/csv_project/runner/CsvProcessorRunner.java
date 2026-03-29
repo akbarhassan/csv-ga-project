@@ -14,7 +14,8 @@ import java.util.List;
  * CommandLineRunner that executes the CSV processing when the application starts.
  * This is the main entry point for the concurrent CSV data processor.
  */
-@Component
+// Disabled - use REST API instead via /api/employees/process
+// @Component
 public class CsvProcessorRunner implements CommandLineRunner {
 
     private final CsvReaderService csvReaderService;
